@@ -7,6 +7,7 @@ for char in text:
 
 print("1. Reversed string:", reverse)
 
+
 # 2. Check if a string is a palindrome.
 text = "wow"
 reverse = ""
@@ -19,23 +20,34 @@ if text == reverse:
 else:
     print("2. Not Palindrome")
 
+
 # 3. Count occurrences of each character
 text = "hello"
 counts = {}
 
 for char in text:
-    counts[char] = counts.get(char, 0) + 1
+    if char in counts:
+        counts[char] = counts[char] + 1
+    else:
+        counts[char] = 1
 
 print("3. Character counts:", counts)
 
+
 # 4. Find the first non-repeating character
+text = "aabbcdd"
 
-def my_function(x):
-  return list(dict.fromkeys(x))
+for char in text:
+    count = 0
 
-mylist = my_function(["a", "b", "a", "c", "c","d","a"])
+    for check in text:
+        if char == check:
+            count = count + 1
 
-print("4. First non-repeating character:", mylist[0])
+    if count == 1:
+        print("4. First non-repeating character:", char)
+        break
+
 
 # 5. Remove duplicate characters from a string.
 text = "programming"
@@ -47,8 +59,29 @@ for char in text:
 
 print("5. Unique characters:", result)
 
+
 # 6. Check whether two strings are anagrams
 str1 = "listen"
 str2 = "silent"
 
-print("6. Anagrams:", sorted(str1) == sorted(str2))
+if len(str1) == len(str2):
+    matched = ""
+
+    for char in str1:
+        found = False
+
+        for check in str2:
+            if char == check and check not in matched:
+                matched += check
+                found = True
+                break
+
+        if not found:
+            break
+
+    if len(matched) == len(str1):
+        print("6. Anagrams: True")
+    else:
+        print("6. Anagrams: False")
+else:
+    print("6. Anagrams: False")
