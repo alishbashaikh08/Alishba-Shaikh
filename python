@@ -1,0 +1,54 @@
+# 1. Reverse a string without using [::-1].
+text = "hello"
+reverse = ""
+
+for char in text:
+    reverse = char + reverse
+
+print("1. Reversed string:", reverse)
+
+# 2. Check if a string is a palindrome.
+text = "wow"
+reverse = ""
+
+for char in text:
+    reverse = char + reverse
+
+if text == reverse:
+    print("2. Palindrome")
+else:
+    print("2. Not Palindrome")
+
+# 3. Count occurrences of each character
+text = "hello"
+counts = {}
+
+for char in text:
+    counts[char] = counts.get(char, 0) + 1
+
+print("3. Character counts:", counts)
+
+# 4. Find the first non-repeating character
+
+def my_function(x):
+  return list(dict.fromkeys(x))
+
+mylist = my_function(["a", "b", "a", "c", "c","d","a"])
+
+print("4. First non-repeating character:", mylist[0])
+
+# 5. Remove duplicate characters from a string.
+text = "programming"
+result = ""
+
+for char in text:
+    if char not in result:
+        result += char
+
+print("5. Unique characters:", result)
+
+# 6. Check whether two strings are anagrams
+str1 = "listen"
+str2 = "silent"
+
+print("6. Anagrams:", sorted(str1) == sorted(str2))
